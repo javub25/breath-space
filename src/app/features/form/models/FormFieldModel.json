@@ -1,0 +1,28 @@
+{
+  "activity": {
+    "question": "What activity were you doing?",
+    "options":[
+        {"label": "Intense Mental Work", "value": "Mental work"},
+        {"label": "Intense Exercise", "value": "Intense exercise"},
+        {"label": "Many Meetings", "value": "Many Meetings"},
+        {"label": "Heavy Screen Use", "value": "Heavy Screen Use"},
+        {"label": "Long Time Sitting", "value": "Long Time Sitting"}
+    ]
+  },
+  "energy": {
+    "question": "How is your energy level?",
+     "options": 
+      [
+        {"label": "High", "value": "High"},
+        {"label": "Medium", "value": "Medium"},
+        {"label": "Low", "value": "Low"}
+      ]
+  },
+  "minutes": {
+    "question": "How much time do you have for a break?",
+    "options": [
+      {"label": "2 minutes", "value": "2 minutes"},
+      {"label": "3 minutes", "value": "3 minutes"}
+    ]
+  }
+}
