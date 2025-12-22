@@ -1,0 +1,57 @@
+:root
+{
+    --timer-size: 20rem;
+    --timer-strike-style-none: none;
+    --color-brand-primary: #4f39f6;
+    --color-brand-hover: #6A54FF;
+    --timer-alignment: center;
+    --timer-responsive-size: 100%;
+    --timer-position-zero: 0;
+    --button-margin-center: auto; 
+}
+
+.base-timer {
+  position: relative;
+  height: var(--timer-size);
+  width: var(--timer-size);
+}
+
+.base-timer__circle {
+  fill: var(--timer-strike-style-none);
+  stroke: var(--timer-strike-style-none);
+}
+
+.base-timer__path-elapsed {
+  stroke-width: 7px;
+  stroke: var(--color-brand-primary);
+}
+
+.base-timer__label
+{
+  color:black;
+  position: var(--absolute);
+  max-width: var(--timer-responsive-size);
+  width: var(--timer-size);
+  height: var(--timer-size); 
+  top: var(--timer-position-zero);
+  left: var(--timer-position-zero);
+  display: flex;
+  align-items: var(--timer-alignment);
+  justify-content: var(--timer-alignment);
+  font-size:48px;
+  font-weight: 600;
+}
+
+.base-controls__buttons
+{
+  padding: 16px;
+  background: var(--color-brand-primary);
+  border-radius: 6px;
+  cursor: pointer;
+  display:block;
+  margin:var(--button-margin-center);
+}
+.base-controls__buttons:hover 
+{
+  background: var(--color-brand-hover);
+}
