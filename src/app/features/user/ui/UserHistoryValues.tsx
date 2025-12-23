@@ -1,6 +1,5 @@
 import trashIcon from "@/app/features/user/assets/svg/trash.svg";
 import { useAuthUserId } from "@/app/modules/auth/hooks/useAuthUserId.ts";
-import { useAuthUserName } from "@/app/modules/auth/hooks/useAuthUserName";
 import { useRecommendationMessage } from "@/app/features/recommendation/hooks/useRecommendationMessage";
 import { useUserHistoryData} from "@/app/features/user/hooks/useUserHistoryData";
 import { userRepository } from "@/app/database/infraestructure/supabase/userRepository.ts";
@@ -22,7 +21,6 @@ import { useUserHistoryStore } from "../hooks/useUserHistoryStore";
 const UserHistoryValues = ({userHistoryRef}: HistoryRefType ) => 
 {
     const currentAuthId = useAuthUserId();
-    const {currentAuthUserName} = useAuthUserName();
     const {historyData} = useUserHistoryData({currentAuthId});
 
     if(currentAuthId)
@@ -30,7 +28,7 @@ const UserHistoryValues = ({userHistoryRef}: HistoryRefType ) =>
         return (
             <div className="mt-40 p-8" ref={userHistoryRef}>
                 <h2 className="text-3xl font-bold mb-6 text-gray-800 text-center">
-                    History for {currentAuthUserName}
+                    YOUR HISTORY
                 </h2>
 
                 <UserHistoryCount count={historyData.length} />
@@ -45,7 +43,7 @@ const UserHistoryValues = ({userHistoryRef}: HistoryRefType ) =>
 const UserHistoryList = ({ items }: HistoryListProps) => 
 {
   return (
-      <ul className="flex w-full flex-wrap gap-6 mx-auto items-center justify-center">
+      <ul className="w-full max-w-240 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto">
         {items.map((item, index) => (
             <UserHistoryItem key={index} data={item} />
         ))}
@@ -69,7 +67,7 @@ const UserHistoryItem = ({data}: HistoryItemType) =>
   const {id, activity, energy, minutes, recommendationMessage } = data;
 
   return (
-    <li className="w-[20rem] my-4 rounded-2xl shadow-md border border-gray-200 p-5 transition hover:shadow-lg hover:border-indigo-400">
+    <li className="w-full min-h-88 my-4 rounded-2xl shadow-md border border-gray-200 p-5 transition hover:shadow-lg hover:border-indigo-400">
 
         <HistoryField title="Activity" value={activity} />
         <HistoryField title="Energy" value={energy} />
@@ -117,7 +115,7 @@ const DeleteHistoryButton = ({itemId}: {itemId: string}) =>
 const UserHistoryButton = (userHistoryRef: HistoryRefType) => 
 {
     const currentAuthId = useAuthUserId();
-    const recommendationMessage = useRecommendationMessage();
+    const {recommendationMessage} = useRecommendationMessage();
     const canUserSaveHistory = Boolean(currentAuthId && recommendationMessage);
     const addHistoryItemToStore = useUserHistoryStore((state) => state.addHistoryItem);
 
