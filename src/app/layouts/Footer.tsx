@@ -2,8 +2,8 @@ export const Footer = () =>
 {
     return (
         <footer className="bg-gray-950 p-8">
-            <ul className="flex items-center justify-evenly w-84 mx-auto">
-                <li>
+            <ul className="flex items-center justify-evenly max-w-84 w-full mx-auto">
+                <li> 
                     <p className="text-white text-sm">
                         © Javier Úbeda Rayo 2025
                     </p>
