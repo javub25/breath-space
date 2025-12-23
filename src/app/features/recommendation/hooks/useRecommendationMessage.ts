@@ -4,7 +4,10 @@ const useRecommendationMessage = () =>
 {
     const recommendationMessage = useFormStore(state => state.recommendationMessage);
 
-    return recommendationMessage;
+    return {
+        recommendationMessage,
+        hasRecommendation: Boolean(recommendationMessage)
+    }
 }
 
 export {

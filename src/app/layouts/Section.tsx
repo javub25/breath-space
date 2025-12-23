@@ -32,11 +32,8 @@ export const Section = () =>
                 </div>
             </article>
             
-            <article className="px-4 pt-12 pb-4">
+            <article className="px-4 pt-20 pb-14">
                 <RecommendationMessage />
-            </article>
-
-            <article>
                 <UserHistoryValues userHistoryRef={userHistoryRef} />
             </article>
         </section>
